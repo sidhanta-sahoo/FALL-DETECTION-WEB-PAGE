@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fall Detection System</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Roboto:wght@300;400&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <div class="container-nav">
+            <nav class="navbar">
+                <div class="hamburger" id="hamburger">
+                    <div class="line"></div>
+                    <div class="line"></div>
+                    <div class="line"></div>
+                </div>
+                <ul class="nav-links" id="nav-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#features">Features</a></li>
+                    <li><a href="#how-it-works">How It Works</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#contact">Contact Us</a></li>  
+                </ul>
+                <a href="Buy Page/buy.html" class="cta-button" id="buy-button">Buy Now</a>
+            </nav>
+        </div>
+    </header>
+    
+
+    <main>
+        <section class="hero">
+            <div class="container">
+                <h1>Your Loved Ones' Safety, Assured</h1>
+                <p>Real-time fall detection and instant alerts to keep your family safe and connected.</p>
+                <a href="#features" class="cta-button">Learn More</a>
+            </div>
+        </section>
+
+        <section id="features" class="features">
+            <div class="container-feature">
+                <h2>Features</h2>
+                <div class="features-grid">
+                    <div class="feature">
+                        <h3>Real-Time Alerts</h3>
+                        <p>Instant notifications sent to relatives via SMS or email.</p>
+                    </div>
+                    <div class="feature">
+                        <h3>Buzzer Functionality</h3>
+                        <p>Loud buzzer to alert nearby people during emergencies.</p>
+                    </div>
+                    <div class="feature">
+                        <h3>Elderly-Friendly Design</h3>
+                        <p>Lightweight and comfortable to wear for extended periods.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="how-it-works" class="how-it-works">
+            <div class="container" style="padding: 10px;">
+                <h2>How It Works</h2>
+                <p>Our advanced system uses sensors to detect falls and immediately notify loved ones. Watch the demo video below to see it in action.</p>
+                <video controls>
+                    <source src="demo.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+        </section>
+
+        <section id="pricing" class="pricing">
+            <div class="container" style="padding: 10px;">
+                <h2>Pricing</h2>
+                <p>Choose a plan that suits your needs and enjoy peace of mind.</p>
+                <div class="pricing-table">
+                    <div class="pricing-option">
+                        <h3>Basic</h3>
+                        <p>$99</p>
+                        <p>Essential features for reliable safety.</p>
+                    </div>
+                    <div class="pricing-option">
+                        <h3>Premium</h3>
+                        <p>$149</p>
+                        <p>Includes advanced notifications and premium support.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="contact">
+            <div class="container" style="padding: 5px;">
+                <h2>Contact Us</h2>
+                <form action="https://api.web3forms.com/submit" method="POST" >
+                    <!-- Web3Forms Hidden Inputs -->
+                    <input type="hidden" name="access_key" value="23636706-6cee-4539-9b94-1c0db7fcaf3d">
+                    <input type="hidden" name="subject" value="New Contact Form Submission">
+                    <input type="hidden" name="redirect" value="/TRIDENT%20PROJ/thankyou.html"> 
+
+                    <!-- Form Fields -->
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name" required>
+        
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required>
+        
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" rows="5" required></textarea>
+        
+                    <button type="submit">Send Message</button>
+                </form>
+            </div>
+        </section>
+        
+    </main>
+
+    <footer class="footer">
+        <div class="footer-container container">
+            <div class="footer-about">
+                <h3>About FallDetect</h3>
+                <p>FallDetect provides reliable fall detection solutions to ensure the safety and well-being of your loved ones.</p>
+            </div>
+            <div class="footer-links">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#features">Features</a></li>
+                    <li><a href="#how-it-works">How It Works</a></li>
+                    <li><a href="#pricing">Pricing</a></li>
+                    <li><a href="#contact">Contact Us</a></li>
+                </ul>
+            </div>
+            <div class="footer-social">
+                <h3>Follow Us</h3>
+                <div class="social-icons">
+                    <a href="#"><img src="assest/facebook.png" alt="Facebook"></a>
+                    <a href="#"><img src="assest/instagram.png" alt="Instagram"></a>
+                    <a href="#"><img src="assest/linkedin.png" alt="Linkedin"></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 FallDetect. All rights reserved.</p>
+        </div>
+    </footer>
+    
+
+    <script src="app.js"></script>
+</body>
+</html>

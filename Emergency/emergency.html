@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emergency Contact</title>
+    <link href="https://fonts.googleapis.com/css2?family=Garamond:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Garamond', serif;
+            background-color: #f4f1e1;
+            color: #4b0082;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            text-align: center;
+            background: #fff;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            width: 80%;
+            max-width: 900px;
+        }
+
+        h1 {
+            color: #4b0082;
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        p {
+            font-size: 1.2rem;
+            margin-bottom: 40px;
+        }
+
+        .button {
+            background-color: #4b0082;
+            color: #fff;
+            font-size: 1.5rem;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            outline: none;
+            transition: transform 0.3s ease, background-color 0.3s ease;
+        }
+
+        .button:hover {
+            transform: scale(1.1);
+            background-color: #6a0dad;
+        }
+
+        .button:active {
+            transform: scale(0.9);
+        }
+
+        @keyframes flash {
+            0% { opacity: 1; }
+            50% { opacity: 0.5; }
+            100% { opacity: 1; }
+        }
+
+        .message {
+            margin-top: 20px;
+            font-size: 1.2rem;
+            color: #4b0082;
+            animation: flash 1s infinite;
+            display: none;
+        }
+
+        .speech-button {
+            margin-top: 30px;
+            padding: 12px 24px;
+            font-size: 1.2rem;
+            background-color: #6a0dad;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .speech-button:hover {
+            background-color: #4b0082;
+        }
+
+        .additional-info {
+            margin-top: 40px;
+            background-color: #faf3e0;
+            padding: 15px;
+            border-radius: 5px;
+            font-size: 1rem;
+            color: #4b0082;
+        }
+        @media (max-width:768px){
+            body{
+                padding: 6px;
+            }
+            h1{
+                margin-top: 20px;
+            }
+            .container{
+                margin-top: 60px;
+            }
+
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Emergency Contact</h1>
+    <p>If you're in an emergency situation, click the button below to send an emergency message to your close contacts, or use your voice to communicate if you can't click.</p>
+    
+    <button class="button" id="sendMessageBtn">Send Emergency Message</button>
+    
+    <p id="message" class="message">Your message has been sent to your close contacts. Please stay safe!</p>
+
+    <!-- New Speech-to-Text Button -->
+    <button class="speech-button" id="speechBtn">Use Voice to Communicate</button>
+
+    <!-- Information about the feature -->
+    <div class="additional-info">
+        <p>Our emergency system also allows you to speak to the app. Simply click the "Use Voice to Communicate" button and say something like "Help me!" or "I'm in danger".</p>
+    </div>
+</div>
+
+<script>
+    // Send Emergency Message logic
+    document.getElementById('sendMessageBtn').addEventListener('click', function() {
+        const messageElement = document.getElementById('message');
+        messageElement.style.display = 'block';
+        
+        // Simulating sending a message
+        setTimeout(function() {
+            messageElement.style.display = 'none';
+            alert('Emergency message sent to your close contacts!');
+        }, 3000);
+    });
+
+    // Speech-to-Text logic
+    const speechButton = document.getElementById('speechBtn');
+    const messageElement = document.getElementById('message');
+    let recognition;
+
+    if ('webkitSpeechRecognition' in window) {
+        recognition = new webkitSpeechRecognition();
+        recognition.lang = 'en-US';
+        recognition.continuous = false;
+        recognition.interimResults = false;
+
+        recognition.onstart = function() {
+            console.log('Voice recognition started. Speak now.');
+        };
+
+        recognition.onresult = function(event) {
+            const transcript = event.results[0][0].transcript;
+            console.log('Recognized text:', transcript);
+            messageElement.style.display = 'block';
+            messageElement.innerHTML = `Voice message sent: "${transcript}". Your close contacts have been alerted!`;
+            
+            setTimeout(function() {
+                messageElement.style.display = 'none';
+            }, 3000);
+        };
+
+        recognition.onerror = function(event) {
+            console.log('Speech recognition error:', event.error);
+        };
+
+        speechButton.addEventListener('click', function() {
+            recognition.start();
+        });
+    } else {
+        speechButton.disabled = true;
+        alert('Speech recognition not supported in this browser.');
+    }
+</script>
+
+</body>
+</html>
